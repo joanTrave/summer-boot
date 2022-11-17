@@ -6,7 +6,7 @@ README = (pathlib.Path(__file__).resolve().parent / "README.md").read_text()
 
 setup(
     name="python-summer-boot",
-    version="1.0.3",
+    version="1.0.4",
     description="After spring it comes the summer.",
     python_requires=">=3.8",
     long_description=README,
