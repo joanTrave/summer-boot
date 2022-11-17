@@ -1,0 +1,5 @@
+ALL_FILES_PATH: str = "/**/*"
+DEFAULT: str = "DEFAULT"
+NEW_LINE_LITERAL: str = "\n"
+PYTHON_EXTENSION: str = ".py"
+SERVICE_DECORATOR_LITERAL: str = "@service"
