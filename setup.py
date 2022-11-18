@@ -6,7 +6,7 @@ README = (pathlib.Path(__file__).resolve().parent / "README.md").read_text()
 
 setup(
     name="python-summer-boot",
-    version="1.0.5",
+    version="1.0.5.1",
     description="After spring it comes the summer.",
     python_requires=">=3.8",
     long_description=README,
@@ -22,7 +22,7 @@ setup(
     package_dir={
         "summer": "summer",
     },
-    packages=["summer.inversion_of_control", "summer.models"],
+    packages=["summer.inversion_of_control", "summer.models", "summer.models.camel"],
     include_package_data=True,
     install_requires=["pydantic"],
     entry_points={},
