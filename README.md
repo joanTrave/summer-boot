@@ -24,7 +24,7 @@ executable_parent_path = get_executable_parent_path(os.getcwd())
 def setup():
     discover_services(executable_parent_path)
 ```
-**Remember to call setup function before use any injection.**
+**⚠️ Remember to call setup function before use any injection. ⚠️**
 
 You can define services using the ```@service``` decorator at class level.
 ```python
@@ -36,7 +36,7 @@ from src.mock_entity.core.i_repository import IRepository
 @service()
 class PostgreRepository(IRepository):
     def custom_method(self):
-        return "Postgre respoistory"
+        return "Postgre repository"
 ```
 Here the code of ```IRepository```:
 ```python
@@ -63,4 +63,20 @@ class UseCase:
 
     def my_use_case(self) -> str:
         return self.repository.custom_method()
+```
+
+## Models ##
+**⚠️ It is necessary to install pydantic in order to use this module. ⚠️**
+
+SummerBoot implements some models using inheritance from pydantic.
+
+### CamelModel ###
+
+A model which every attribute is represented as camelCase perhaps is coded as snake_case. I.e.:
+```python
+from summer.models.camel.camel_model import CamelModel
+
+
+class MockCamelModel(CamelModel):
+    mock_attribute: str = "mock"
 ```

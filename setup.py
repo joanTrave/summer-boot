@@ -6,7 +6,7 @@ README = (pathlib.Path(__file__).resolve().parent / "README.md").read_text()
 
 setup(
     name="python-summer-boot",
-    version="1.0.4",
+    version="1.0.5",
     description="After spring it comes the summer.",
     python_requires=">=3.8",
     long_description=README,
@@ -22,9 +22,9 @@ setup(
     package_dir={
         "summer": "summer",
     },
-    packages=["summer.inversion_of_control"],
+    packages=["summer.inversion_of_control", "summer.models"],
     include_package_data=True,
-    install_requires=[],
+    install_requires=["pydantic"],
     entry_points={},
     project_urls={
         "Source": "https://github.com/joanTrave/summer-boot",
