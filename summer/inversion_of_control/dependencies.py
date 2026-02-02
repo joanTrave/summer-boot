@@ -20,7 +20,7 @@ def autowired(func: Callable) -> Callable:
         for key_param, key_type in func_annotation.items():
             if key_type in services:
                 kwargs[key_param] = services_dict[get_context()][key_type]()
-        func(*args, **kwargs)
+        return func(*args, **kwargs)
 
     return wrapper
 
@@ -36,7 +36,9 @@ def service(context_name: str = DEFAULT) -> Callable[[Type[T]], Type[T]]:
         class_base: Type[T] = cls.__bases__[0]  # Interface
         # Check if service already is mapped for context
         if services_dict.get(context_name).get(class_base):
-            raise ValueError(f"Service {class_base} already mapped for context {context_name}")
+            raise ValueError(
+                f"Service {class_base} already mapped for context {context_name}"
+            )
         services_dict[context_name][class_base] = cls
         services.add(class_base)
         return cls
