@@ -18,6 +18,8 @@ def autowired(func: Callable) -> Callable:
     def wrapper(*args, **kwargs):
         func_annotation: Dict[str, Type[T]] = inspect.getfullargspec(func).annotations
         for key_param, key_type in func_annotation.items():
+            if key_param == 'return':
+                continue
             if key_type in services:
                 kwargs[key_param] = services_dict[get_context()][key_type]()
         func(*args, **kwargs)

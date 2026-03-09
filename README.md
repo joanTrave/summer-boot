@@ -58,7 +58,7 @@ from src.mock_entity.core.i_repository import IRepository
 
 class UseCase:
     @autowired
-    def __init__(self, repository: IRepository):
+    def __init__(self, repository: IRepository) -> None:
         self.repository = repository
 
     def my_use_case(self) -> str:

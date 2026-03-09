@@ -4,7 +4,7 @@ from tests.inversion_of_control.context.mock_entity.core.i_repository import IRe
 
 class UseCase:
     @autowired
-    def __init__(self, repository: IRepository):
+    def __init__(self, repository: IRepository) -> None:
         self.repository = repository
 
     def my_use_case(self) -> str:
